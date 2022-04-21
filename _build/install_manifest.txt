@@ -1,0 +1,1 @@
+/Users/daniildanilov/lab06_timp/_build/_CPack_Packages/Darwin/TGZ/solver-0.1.0.0-Darwin/bin/solver_app

@@ -4,7 +4,7 @@ project(hello_world_with_formatter_ex)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CURRENT_SOURCE_DIR /Users/daniildanilov/lab04_timp) 
+set(CMAKE_CURRENT_SOURCE_DIR /Users/daniildanilov/lab06_timp) 
 
 add_executable(hello_world ${CMAKE_CURRENT_SOURCE_DIR}/hello_world_application/hello_world.cpp)
 
