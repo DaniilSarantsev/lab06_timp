@@ -15,4 +15,3 @@ find_library(formatter NAMES libformatter.a PATHS ${CMAKE_CURRENT_SOURCE_DIR}/fo
 
 target_link_libraries(hello_world /Users/daniildanilov/lab03_timp/formatter_lib/_build/libformatter.a)
 target_link_libraries(hello_world /Users/daniildanilov/lab03_timp/formatter_ex_lib/_build/libformatter_ex.a)
-
