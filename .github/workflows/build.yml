@@ -20,19 +20,17 @@ jobs:
     
     - name: formatter_lib_build
       run: |
-        cd formatter_lib
-        cmake . -DCMAKE_CXX_COMPILER=clang++
-        cmake -H. -B_build
-        cmake --build _build
-        cd ..
+         cd formatter_lib
+         cmake . -DCMAKE_CXX_COMPILER=clang++
+         cmake --build .
+         cd ..
 
    
     - name: formatter_ex_lib_build
       run: |
         cd formatter_ex_lib
         cmake . -DCMAKE_CXX_COMPILER=clang++
-        cmake -H. -B_build
-        cmake --build _build
+        cmake --build .
         cd ..
 
 
@@ -40,8 +38,7 @@ jobs:
       run: |
         cd hello_world_application
         cmake . -DCMAKE_CXX_COMPILER=clang++
-        cmake -H. -B_build
-        cmake --build _build
+        cmake --build .
         cd ..
 
 
@@ -49,8 +46,7 @@ jobs:
       run: |
         cd solver_application
         cmake . -DCMAKE_CXX_COMPILER=clang++
-        cmake -H. -B_build
-        cmake --build _build
+        cmake --build .
         cd ..
         
   build2:
