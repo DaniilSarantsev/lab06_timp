@@ -48,3 +48,4 @@ jobs:
           asset_path: artifacts/solver-0.1.1-Linux.deb
           asset_name: solver.deb
           asset_content_type: application/deb
+
