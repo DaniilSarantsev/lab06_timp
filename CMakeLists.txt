@@ -44,7 +44,7 @@ if(CPACK_GENERATOR_DMG)
     set(CPACK_GENERATOR "DragNDrop")
 endif()
 
-include(CPack)
+include(CPackConfig.cmake)
 
 
 
