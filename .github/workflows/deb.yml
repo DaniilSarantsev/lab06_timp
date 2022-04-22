@@ -36,7 +36,7 @@ jobs:
           
       - name: Artifacts move
         run: |
-          mv /home/runner/work/Lab06_TIMP/lab06_timp/_build/*.deb artifacts
+          mv /home/runner/work/lab06_timp/lab06_timp/_build/*.deb artifacts
           
       - name: Upload
         id: upload-release-asset
