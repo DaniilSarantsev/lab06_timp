@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
   
-    steps:    
+    steps:
     
     - name: checkout
       uses: actions/checkout@v1
@@ -24,7 +24,6 @@ jobs:
          cmake . -DCMAKE_CXX_COMPILER=clang++
          cmake --build .
          cd ..
-
    
     - name: formatter_ex_lib_build
       run: |
@@ -32,16 +31,12 @@ jobs:
         cmake . -DCMAKE_CXX_COMPILER=clang++
         cmake --build .
         cd ..
-
-
     - name: hello_world_build
       run: |
         cd hello_world_application
         cmake . -DCMAKE_CXX_COMPILER=clang++
         cmake --build .
         cd ..
-
-
     - name: solver_build
       run: |
         cd solver_application
@@ -53,7 +48,7 @@ jobs:
     runs-on: windows-latest
     timeout-minutes: 10
   
-    steps:    
+    steps:
     
     - name: checkout
       uses: actions/checkout@v1
@@ -91,7 +86,39 @@ jobs:
         make ..
         cd ..
           
-
-
-
-
+   
+          
+    - name: Solver for release
+      run: |
+        cmake -DCPACK_GENERATOR_DEB=ON -B ./_build
+        cd _build
+        make package
+        make package_source
+        cd ..
+        cd ..
+        
+    - name: Release creation
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+          
+    - name: Artifacts move
+      run: |
+        mv /home/runner/work/lab06_timp/lab06_timp/_build/*.deb artifacts
+          
+    - name: Upload
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: artifacts/solver-0.1.1-Linux.deb
+        asset_name: solver.deb
+        asset_content_type: application/deb
