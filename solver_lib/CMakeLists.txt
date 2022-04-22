@@ -5,4 +5,3 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CURRENT_SOURCE_DIR /home/runner/work/lab06_timp/lab06_timp)
 add_library(solver_lib STATIC ${CMAKE_CURRENT_SOURCE_DIR}/solver_lib/solver.cpp)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
-
